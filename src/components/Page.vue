@@ -5,7 +5,7 @@
       ">{{text.charAt(0) || ''}}</p>
     </div>
     <div class="text-4xl font-all mb-4 ml-16 items-start w-[500px] h-[530px]">
-      <input class="text-2xl border-4 w-[30rem] mb-10 p-2 rounded-xl"
+      <input class="text-6xl font-black border-4 w-[65rem] mb-10 p-8 py-6 rounded-xl"
        placeholder="最初の一文字の漢字を読み込みます" :value="text" @input="onInput">
       <p class="pb-12">意味: {{meaning || ''}}</p>
       <p class="pb-12">音読: {{onyomi || ''}}</p>
