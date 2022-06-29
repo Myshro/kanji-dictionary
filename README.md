@@ -1,19 +1,6 @@
-# kanji-site
+# [kanji-site](https://yakunitatanu-jisho.netlify.app/)
 
 ## Project setup
-```
-npm install
-```
+Takes the first character of input and spits back its meaning, on-yomi and kun-yomi reading, and its stroke number.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Made with **Vue, Tailwind**, and hosted with **Netlify**.
