@@ -1,7 +1,8 @@
 <template>
   <div class="container px-20 flex items-center h-[600px] text-cyan-900">
-    <div class="border-8  w-[34rem] h-[34rem] flex justify-center items-center">
-      <p class="font-all text-[400px] font-black mt-[-50px] rounded 
+    <div class="border-8  w-[34rem] h-[34rem] flex justify-center 
+    items-center">
+      <p class="font-all text-[400px] font-black mt-[-50px] text-cyan-900
       ">{{text.charAt(0) || ''}}</p>
     </div>
     <div class="text-4xl font-all mb-4 ml-16 items-start w-[500px] h-[530px]">
@@ -16,6 +17,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'Page',
   components: {
@@ -29,22 +31,40 @@ export default {
       onyomi: '',
       kunyomi: '',
       strokes: '',
-      showWarning: false
+      showWarning: false,
     }
   },
   methods: {  
     async fetchKanjiData(link) {
-      const res = await fetch(link);
-      const data = await res.json()
-      return data
+        const res = await fetch(link);
+        const data = await res.json();
+        console.log(data)
+        return data
     },
     onInput(e) {
       this.text = e.target.value
       this.firstChar = e.target.value.charAt(0)
+      // fetch(`https://script.google.com/macros/s/AKfycbyPQ_ElGD7TXPclSRCJIb4cTyVstiAGAJv3mMW1yklY_b6k8X1e2JXWVOpwERMlEOs/exec?q=HAHAHA`, {
+      //   redirect: "follow",
+      //   method: "POST",
+      //   body: JSON.stringify(this.text),
+      //   headers: {
+      //     "Content-Type": "text/plain;charset=utf-8",
+      //   }
+      // });
+    },
+    clearText() {
+        this.meaning = ''
+        this.onyomi = ''
+        this.kunyomi = ''
+        this.strokes = ''
     }
   },  
+
   watch: {
     async firstChar() {
+        this.clearText()
+        this.showWarning = true
       if (this.text.length !== 0) {
         this.url = `https://kanjiapi.dev/v1/kanji/${this.firstChar}`
         const data = await this.fetchKanjiData(this.url)
@@ -53,15 +73,13 @@ export default {
         this.onyomi = data.on_readings.join(', ')
         this.kunyomi = data.kun_readings.join(', ')
         this.strokes = data.stroke_count
-        console.log(data)
+
       } else {
-        this.meaning = ''
-        this.onyomi = ''
-        this.kunyomi = ''
-        this.strokes = ''
+        this.clearText()
         this.showWarning = true
       }
-    }
+    },
+    
   },
   async created() {
         this.text = '例'
