@@ -64,19 +64,16 @@ export default {
   watch: {
     async firstChar() {
         this.clearText()
-        this.showWarning = true
-      if (this.text.length !== 0) {
-        this.url = `https://kanjiapi.dev/v1/kanji/${this.firstChar}`
-        const data = await this.fetchKanjiData(this.url)
-        
-        this.meaning = data.meanings.join(', ')
-        this.onyomi = data.on_readings.join(', ')
-        this.kunyomi = data.kun_readings.join(', ')
-        this.strokes = data.stroke_count
-
-      } else {
-        this.clearText()
-        this.showWarning = true
+        if (this.text.length !== 0) {
+          this.url = `https://kanjiapi.dev/v1/kanji/${this.firstChar}`
+          const data = await this.fetchKanjiData(this.url)
+          
+          this.meaning = data.meanings.join(', ')
+          this.onyomi = data.on_readings.join(', ')
+          this.kunyomi = data.kun_readings.join(', ')
+          this.strokes = data.stroke_count
+        } else {
+          this.clearText()
       }
     },
     
