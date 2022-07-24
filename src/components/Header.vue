@@ -7,7 +7,7 @@
     <a class="text-cyan-600" href="https://kanjiapi.dev/">利用させて頂いたAPIはこちら</a>
   </div>
     <div class="pl-10 flex gap-10 text-4xl text-center">
-        <a class="" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">連絡</a>
+        <a class="" href="https://twitter.com/youyuxi">仮</a>
         <a class="border-dotted border-l-4 border-cyan-600 pl-4" 
         href="https://twitter.com/vuejs">ツイッター</a>
         <a class="border-dotted border-l-4 border-cyan-600 pl-4" 
