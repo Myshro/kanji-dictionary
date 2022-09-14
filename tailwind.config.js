@@ -7,6 +7,9 @@ module.exports = {
         all: ['Noto Serif JP']
       }
     },
+    screens: {
+      'avg': {'max': '2000px', 'max': '900px'}
+    },
     container: {
     }
   },
